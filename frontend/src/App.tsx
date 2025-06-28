@@ -1,14 +1,12 @@
-import { useState } from 'react'
-
 import './App.css'
+import { Pomodoro } from './components/pages/Pomodoro'
 
 function App() {
 
 
   return (
   <>
-
-    <h1 className='text-red-600'>Hello</h1>
+  <Pomodoro/>
   </>
   )
 }

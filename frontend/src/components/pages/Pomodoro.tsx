@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import {
   Card,
   CardAction,
@@ -8,26 +7,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Dialog } from "../ui/dialog";
+import { Button } from "../ui/button"
+import Timer from "../ui/Timer"
 
-export function Pomodoro(){
-    return(
-        <>
-        <Card className="w-[350px] mx-auto mt-20 text-center">
-  <CardHeader>
-    <CardTitle className="text-3xl">Pulse Pomodoro</CardTitle>
-    <CardDescription>Stay focused. Stay sharp.</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <div className="text-6xl font-mono my-6">{/* Timer: 25:00 */}</div>
-    <div className="flex justify-center gap-4">
-      <Button>Start</Button>
-      <Button variant="outline">Pause</Button>
-      <Button variant="destructive">Reset</Button>
-    </div>
-  </CardContent>
-</Card>
-
-        </>
-    )
+export default function Pomodoro() {
+  return (
+    <>
+      <h1>Pulse Pomodoro</h1>
+      <Card>
+        <CardHeader className="flex gap-4">
+          <Button>Pomodoro</Button>
+          <Button>Short Break</Button>
+          <Button>Long Break</Button>
+        </CardHeader>
+        <CardContent>
+         <Timer/>
+        </CardContent>
+        <CardFooter>
+          <p>Card Footer</p>
+        </CardFooter>
+      </Card>
+    </>
+  )
 }

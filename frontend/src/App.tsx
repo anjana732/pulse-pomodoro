@@ -1,5 +1,5 @@
 import './App.css'
-import { Pomodoro } from './components/pages/Pomodoro'
+import  Pomodoro  from './components/pages/Pomodoro'
 
 function App() {
 

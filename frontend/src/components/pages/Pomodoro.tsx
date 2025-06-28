@@ -6,8 +6,16 @@ import {
 } from "@/components/ui/card"
 import { Button } from "../ui/button"
 import Timer from "../ui/Timer"
+import Shortbreak from "../ui/Shortbreak"
+import Longbreak from "../ui/Longbreak"
+import { useState } from "react"
 
 export default function Pomodoro() {
+
+  const[pomodoro, setPomodoro] = useState(true);
+  const[shortBreak,  setShortBreak] = useState(false);
+  const[longBreak , setLongBreak] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-start gap-8 px-4 py-12 bg-white text-gray-900">
       {/* Heading */}
@@ -31,21 +39,25 @@ export default function Pomodoro() {
       <Card className="w-full max-w-md shadow-md">
         <CardHeader>
           {/* Buttons in header */}
+         
           <div className="flex justify-center gap-3 flex-wrap">
-            <Button variant="default" className="px-5 font-medium">
+            <Button variant="default" className="px-5 font-medium" onClick={() => {setLongBreak(false); setPomodoro(true); setShortBreak(false)} }>
               Pomodoro
             </Button>
-            <Button variant="secondary"className="border-gray-600 text-white">
+            <Button variant="secondary"className="border-gray-600 text-white" onClick={() => {setLongBreak(false); setPomodoro(false); setShortBreak(true)} }>
               Short Break
             </Button>
-            <Button variant="outline" className="border-gray-600 text-white">
+            <Button variant="outline" className="border-gray-600 text-white" onClick={() => {setLongBreak(true); setPomodoro(false); setShortBreak(false)} }>
               Long Break
             </Button>
           </div>
         </CardHeader>
 
         <CardContent>
-          <Timer />
+          {pomodoro && <Timer />}
+          {shortBreak && <Shortbreak/>}
+          {longBreak && <Longbreak/>}
+          
         </CardContent>
 
         {/* No footer text inside the card */}

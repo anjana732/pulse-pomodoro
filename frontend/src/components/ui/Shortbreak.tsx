@@ -14,19 +14,19 @@ export default function Shortbreak() {
       .padStart(2, "0")}`;
   };
 
-  useEffect(() => {
-    let timeout: NodeJS.Timeout | undefined;
+useEffect(() => {
+    let interval: NodeJS.Timeout | undefined
 
     if (isActive && secondLeft > 0) {
-      timeout = setTimeout(() => {
-        setSecondLeft((prev) => prev - 1);
-      }, 1000);
+      interval = setInterval(() => {
+        setSecondLeft((prev) => prev - 1)
+      }, 1000)
     }
 
     return () => {
-      if (timeout) clearTimeout(timeout);
-    };
-  }, [secondLeft, isActive]);
+      if (interval) clearInterval(interval)
+    }
+  }, [isActive, secondLeft])
 
   return (
     <div className="flex flex-col items-center gap-6 p-6">

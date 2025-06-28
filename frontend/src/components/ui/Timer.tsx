@@ -49,7 +49,7 @@ export default function Timer() {
         >
           Reset
         </Button>
-        <Button onClick={() => setIsActive(false)} variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
+        <Button onClick={() => setIsActive(false)} variant="outline" className="border-gray-600 text-white">
           Pause
         </Button>
       </div>

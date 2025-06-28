@@ -35,10 +35,10 @@ export default function Pomodoro() {
             <Button variant="default" className="px-5 font-medium">
               Pomodoro
             </Button>
-            <Button variant="secondary" className="px-5 font-medium text-black">
+            <Button variant="secondary"className="border-gray-600 text-white">
               Short Break
             </Button>
-            <Button variant="outline" className="px-5 font-medium text-black border-gray-400 hover:bg-gray-100">
+            <Button variant="outline" className="border-gray-600 text-white">
               Long Break
             </Button>
           </div>

@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
-import { Button } from "./button";
+import { useState, useEffect } from "react"
+import { Button } from "./button" // assuming you're using ShadCN's button
 
-export default function Timer(){
+export default function Timer() {
+  const initialTime = 25 * 60
+  const [secondLeft, setSecondLeft] = useState(initialTime)
+  const [isActive, setIsActive] = useState(false)
 
-    const initialTime = 25 * 60;
-    const [secondLeft, setSecondLeft] = useState(initialTime);
-    const [isActive, setIsActive] = useState(false);
-
-     const formatTime = (time: number) => {
+  const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60)
     const seconds = time % 60
     return `${minutes.toString().padStart(2, "0")}:${seconds
@@ -15,7 +14,7 @@ export default function Timer(){
       .padStart(2, "0")}`
   }
 
-      useEffect(() => {
+  useEffect(() => {
     let interval: NodeJS.Timeout | undefined
 
     if (isActive && secondLeft > 0) {
@@ -29,32 +28,30 @@ export default function Timer(){
     }
   }, [isActive, secondLeft])
 
+  return (
+    <div className="flex flex-col items-center gap-8 p-4">
+      {/* Digital clock style timer */}
+      <div className="text-6xl font-mono tracking-widest bg-black text-lime-400 px-8 py-4 rounded-md shadow-md border border-gray-700">
+        {formatTime(secondLeft)}
+      </div>
 
-    return (
-    <div className="text-center text-5xl font-bold my-4">
-      <p>{formatTime(secondLeft)}</p>
-      <div className="mt-4 flex justify-center gap-4">
-        <button
-          onClick={() => setIsActive(true)}
-          className="bg-green-600 text-white px-4 py-2 rounded"
-        >
+      {/* Control buttons */}
+      <div className="flex gap-4">
+        <Button onClick={() => setIsActive(true)} variant="default">
           Start
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => {
             setIsActive(false)
             setSecondLeft(initialTime)
           }}
-          className="bg-red-600 text-white px-4 py-2 rounded"
+          variant="destructive"
         >
           Reset
-        </button>
-        <button
-          onClick={() => setIsActive(false)}
-          className="bg-yellow-500 text-white px-4 py-2 rounded"
-        >
+        </Button>
+        <Button onClick={() => setIsActive(false)} variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
           Pause
-        </button>
+        </Button>
       </div>
     </div>
   )

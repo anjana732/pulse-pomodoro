@@ -1,32 +1,56 @@
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
 import { Button } from "../ui/button"
 import Timer from "../ui/Timer"
 
 export default function Pomodoro() {
   return (
-    <>
-      <h1>Pulse Pomodoro</h1>
-      <Card>
-        <CardHeader className="flex gap-4">
-          <Button>Pomodoro</Button>
-          <Button>Short Break</Button>
-          <Button>Long Break</Button>
+    <div className="min-h-screen flex flex-col items-center justify-start gap-8 px-4 py-12 bg-white text-gray-900">
+      {/* Heading */}
+      <h1 className="text-4xl font-extrabold text-center tracking-tight">
+        Pulse Pomodoro
+      </h1>
+
+      {/* Description (outside card) */}
+      <div className="max-w-2xl text-center text-gray-600 text-base leading-relaxed">
+        <p className="mb-4">
+          The <strong>Pomodoro Technique</strong> is a powerful time management method
+          that breaks your work into 25-minute focused sessions followed by short breaks.
+        </p>
+        <p>
+          This application helps you enhance productivity, stay focused, and prevent burnout — 
+          one Pomodoro at a time.
+        </p>
+      </div>
+
+      {/* Timer Card */}
+      <Card className="w-full max-w-md shadow-md">
+        <CardHeader>
+          {/* Buttons in header */}
+          <div className="flex justify-center gap-3 flex-wrap">
+            <Button variant="default" className="px-5 font-medium">
+              Pomodoro
+            </Button>
+            <Button variant="secondary" className="px-5 font-medium text-black">
+              Short Break
+            </Button>
+            <Button variant="outline" className="px-5 font-medium text-black border-gray-400 hover:bg-gray-100">
+              Long Break
+            </Button>
+          </div>
         </CardHeader>
+
         <CardContent>
-         <Timer/>
+          <Timer />
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
+
+        {/* No footer text inside the card */}
+        <CardFooter></CardFooter>
       </Card>
-    </>
+    </div>
   )
 }

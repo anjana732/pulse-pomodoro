@@ -30,3 +30,14 @@
 
 ## 📂 Folder Structure (Simplified)
 
+
+
+---
+
+## 🖥️ Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/pulse-pomodoro.git
+cd pulse-pomodoro
